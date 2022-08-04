@@ -10,11 +10,6 @@ function ItemList() {
     }
 
     const [posts, setPosts] = useState<Post[]>()
-  const items = [
-    { id: 1, title: "title 1", content: "this is content 1" },
-    { id: 2, title: "title 2", content: "this is content 2" },
-    { id: 3, title: "title 3", content: "this is content 3" },
-  ];
 
   useEffect(() => {
     fetch("/posts")
@@ -29,10 +24,10 @@ function ItemList() {
     <div className={styles.itemList}>
       <h2 className={styles.title}>Item List</h2>
       <div>
-        {posts?.map((item) => (
-          <div className={styles.listItem} key={item.id}>
-            <h3>{item.title}</h3>
-            <p>{item.content}</p>
+        {posts?.map((post) => (
+          <div className={styles.listItem} key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.content}</p>
           </div>
         ))}
       </div>
