@@ -17,8 +17,6 @@ function ItemList() {
       .then((posts) => setPosts(posts));
   },[]);
 
-  
-  console.log(`posts : ${JSON.stringify(posts)}`)
 
   return (
     <div className={styles.itemList}>

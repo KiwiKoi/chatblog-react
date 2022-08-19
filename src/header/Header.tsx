@@ -3,8 +3,8 @@ import styles from './Header.module.scss'
 
 function Header() {
   return (
-    <header>
-        <h1>React App</h1>
+    <header className={styles.headerComponent}>
+        <h1 className={styles.headerTitle}>React App</h1>
     </header>
   )
 }
