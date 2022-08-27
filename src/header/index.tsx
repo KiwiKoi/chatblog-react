@@ -1,10 +1,9 @@
-import React from 'react'
-import styles from './Header.module.scss'
+import styles from './header.module.scss'
 
 function Header() {
   return (
     <header className={styles.headerComponent}>
-        <h1 className={styles.headerTitle}>React App</h1>
+        <p className={styles.headerTitle}>React App</p>
     </header>
   )
 }

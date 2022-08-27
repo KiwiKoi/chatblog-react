@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, Route, Routes } from "react-router-dom";
-import Item from "../Item";
-import ItemCard from "../ItemCard";
-import styles from "./itemList.module.scss";
+import PostCard from "../PostCard";
+import styles from "./postList.module.scss";
 
-function ItemList() {
+function PostList() {
   type Post = {
     postID: string;
     title: string;
@@ -21,11 +19,11 @@ function ItemList() {
 
   return (
     <>
-      <div className={styles.itemList}>
-        <h2 className={styles.title}>Item List</h2>
+      <div className={styles.postListComponent}>
+        <h2 className={styles.postTitle}>Post List</h2>
         <div>
           {posts?.map((post) => (
-            <ItemCard key={post.postID} {...post}/>
+            <PostCard key={post.postID} {...post}/>
           ))}
         </div>
       </div>
@@ -33,4 +31,4 @@ function ItemList() {
   );
 }
 
-export default ItemList;
+export default PostList;

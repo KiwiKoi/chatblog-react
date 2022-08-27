@@ -1,15 +1,15 @@
-import Header from "./header";
-import ItemList from "./ItemList";
+import Header from "./Header";
+import PostList from "./PostList";
 import { Routes, Route } from "react-router-dom";
-import Item from "./Item";
+import PostDetail from "./PostDetail";
 
 function App() {
   return (
     <>
       <Header />
       <Routes>
-        <Route path="/" element={<ItemList />} />
-        <Route path="/posts/:id" element={<Item />} />
+        <Route path="/" element={<PostList />} />
+        <Route path="/posts/:id" element={<PostDetail />} />
       </Routes>
     </>
   );
