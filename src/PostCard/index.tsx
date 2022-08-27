@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./postCard.module.scss";
 
@@ -11,16 +10,11 @@ type Post = {
 function postCard(post: Post) {
   const { id, title, content } = post;
 
-  console.log(post)
-
   return (
-    <Link to={`/posts/${id}`}>
-      <div
-        className={styles.postCard}
-        key={id}
-      >
-        <h3>{title}</h3>
-        <p>{content}</p>
+    <Link to={`/posts/${id}`} className={styles.postCard} key={id}>
+      <div className={styles.textContent}>
+      <h3>{title}</h3>
+      <p>{content}</p>
       </div>
     </Link>
   );

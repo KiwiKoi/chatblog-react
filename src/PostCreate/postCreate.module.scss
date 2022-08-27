@@ -1,0 +1,20 @@
+.postCreateComponent {
+  display: flex;
+  flex-direction: column;
+  margin: 4rem auto;
+  max-width: 30rem;
+  .title {
+    text-align: center;
+  }
+  .createPostForm {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    gap: 1rem;
+
+    .formBlock {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

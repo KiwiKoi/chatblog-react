@@ -7,7 +7,9 @@
   height: 4rem;
   position: fixed;
   top: 0;
-  .headerTitle {
+  gap: 1rem;
+  .headerLink {
     display: flex;
+    margin: 1rem 0;
   }
 }

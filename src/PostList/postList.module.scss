@@ -1,9 +1,22 @@
 .postListComponent {
-  width: 20rem;
-  margin: 4rem auto;
-
+  display: flex;
+  flex-direction: column;
+  margin: 4rem 2rem;
+  max-width: 35rem;
   .postTitle {
     padding: 1rem;
     margin: auto;
   }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media screen and (min-width: 650px){
+    margin: 4rem auto;
+
+  }
 }
+
