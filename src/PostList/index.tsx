@@ -4,7 +4,7 @@ import styles from "./postList.module.scss";
 
 function PostList() {
   type Post = {
-    postID: string;
+    id: string;
     title: string;
     content: string;
   };
@@ -23,7 +23,7 @@ function PostList() {
         <h2 className={styles.postTitle}>Post List</h2>
         <div>
           {posts?.map((post) => (
-            <PostCard key={post.postID} {...post}/>
+            <PostCard key={post.id} {...post}/>
           ))}
         </div>
       </div>

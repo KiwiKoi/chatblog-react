@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import styles from "./postDetail.module.scss";
 
 function PostDetail() {
-  const { postID } = useParams();
+  const { id } = useParams();
 
   type Post = {
-    postID: string;
+    id: string;
     title: string;
     content: string;
   };
@@ -19,7 +19,7 @@ function PostDetail() {
       .then((posts) => setPosts(posts));
   }, []);
 
-  const post = posts?.find((post) => post.postID === postID);
+  const post = posts?.find((post) => post.id === id);
 
   return (
     <>

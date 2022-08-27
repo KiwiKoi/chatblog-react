@@ -3,19 +3,21 @@ import { Link } from "react-router-dom";
 import styles from "./postCard.module.scss";
 
 type Post = {
-  postID: string;
+  id: string;
   title: string;
   content: string;
 };
 
 function postCard(post: Post) {
-  const { postID, title, content } = post;
+  const { id, title, content } = post;
+
+  console.log(post)
 
   return (
-    <Link to={`/posts/${postID}`}>
+    <Link to={`/posts/${id}`}>
       <div
         className={styles.postCard}
-        key={postID}
+        key={id}
       >
         <h3>{title}</h3>
         <p>{content}</p>
