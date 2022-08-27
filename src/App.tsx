@@ -1,6 +1,7 @@
-import Header from "./header/Header";
-import ItemList from "./itemList/itemList";
+import Header from "./header";
+import ItemList from "./ItemList";
 import { Routes, Route } from "react-router-dom";
+import Item from "./Item";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<ItemList />} />
+        <Route path="/posts/:id" element={<Item />} />
       </Routes>
     </>
   );
