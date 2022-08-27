@@ -1,12 +1,15 @@
 import Header from "./header/Header";
 import ItemList from "./itemList/itemList";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
-      <ItemList />
-    </div>
+      <Routes>
+        <Route path="/" element={<ItemList />} />
+      </Routes>
+    </>
   );
 }
 
