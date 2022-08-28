@@ -5,10 +5,12 @@ import { v4 as uuidv4 } from "uuid";
 function PostCreate() {
   const [title, setTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
+  const [image, setImage] = useState<string>('');
+
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const post = { title, content, id: uuidv4() };
+    const post = { title, content, id: uuidv4(), author: 'Daniel' };
 
     fetch("/posts", {
       method: "POST",
@@ -41,7 +43,15 @@ function PostCreate() {
               onChange={(e) => setContent(e.target.value)}
             />
           </div>
-
+          <div className={styles.formBlock}>
+            <label>Image :</label>
+            <input
+              type="text"
+              required
+              value={image}
+              onChange={(e) => setImage(e.target.value)}
+            />
+          </div>
           <button type="submit">Add post</button>
         </form>
       </div>
