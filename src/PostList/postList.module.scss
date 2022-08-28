@@ -1,7 +1,8 @@
 .postListComponent {
   display: flex;
   flex-direction: column;
-  margin: 4rem 2rem;
+  padding: 4rem 2rem;
+  margin: auto;
   max-width: 35rem;
   .postTitle {
     padding: 1rem;
@@ -15,8 +16,7 @@
   }
 
   @media screen and (min-width: 650px){
-    margin: 4rem auto;
-
+    padding: 4rem 0;
   }
 }
 
