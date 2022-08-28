@@ -6,6 +6,7 @@ function Header() {
     <header className={styles.headerComponent}>
         <Link to={'/'} className={styles.headerLink}>React App</Link>
         <Link to={'/newPost'} className={styles.headerLink}>New Post</Link>
+        <Link to={'/dashboard'} className={styles.headerLink}>Dashboard</Link>
     </header>
   )
 }
