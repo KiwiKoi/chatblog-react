@@ -40,6 +40,9 @@ function Navbar() {
               <Link to={"/dashboard"} className={styles.navLink}>
                 Dashboard
               </Link>
+              <Link to={"/signup"} className={styles.navLink}>
+                Sign Up
+              </Link>
             </div>
           )}
         </div>
@@ -54,6 +57,9 @@ function Navbar() {
           </Link>
           <Link to={"/dashboard"} className={styles.navLink}>
             Dashboard
+          </Link>
+          <Link to={"/signup"} className={styles.navLink}>
+            Sign Up
           </Link>
         </div>
       </div>

@@ -1,16 +1,15 @@
-.postCreateComponent {
+.userCreateComponent {
   display: flex;
   flex-direction: column;
   padding: 4rem 2rem;
   margin: auto;
   max-width: 30rem;
-  .title {
+  .formTitle {
   }
-  .createPostForm {
+  .createUserForm {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
     .formBlock {
       display: flex;
       flex-direction: row;
