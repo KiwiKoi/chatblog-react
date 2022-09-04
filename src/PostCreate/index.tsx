@@ -10,7 +10,7 @@ function PostCreate() {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    const post = { title, content, id: uuidv4(), author: 'Daniel' };
+    const post = { title, content, id: uuidv4(), author: 'Daniel', image };
 
     fetch("/posts", {
       method: "POST",

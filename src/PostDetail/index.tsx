@@ -9,6 +9,7 @@ function PostDetail() {
     id: string;
     title: string;
     content: string;
+    image: string;
   };
 
   const [posts, setPosts] = useState<Post[]>();
@@ -24,6 +25,7 @@ function PostDetail() {
   return (
     <>
       <div className={styles.postDetailComponent}>
+        <img className={styles.image} src={post?.image} alt="" />
         <div className={styles.textContent}>
           <h1 className={styles.postTitle}>{post?.title}</h1>
           <p className={styles.postContent}>{post?.content}</p>

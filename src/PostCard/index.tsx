@@ -5,14 +5,16 @@ type Post = {
   id: string;
   title: string;
   content: string;
+  image?: string;
 };
 
 function postCard(post: Post) {
-  const { id, title, content } = post;
-
+  const { id, title, content, image } = post;
+console.log(post)
   return (
     <Link to={`/posts/${id}`} className={styles.postCard} key={id}>
       <div className={styles.textContent}>
+        <img className={styles.image} src={image} alt="" />
       <h3>{title}</h3>
       <p>{content}</p>
       </div>

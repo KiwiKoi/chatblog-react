@@ -19,15 +19,15 @@ function Navbar() {
       <nav className={styles.navbar}>
         <div className={styles.navbarContent}>
           <div className={styles.navbarBrand}>
-            <FontAwesomeIcon icon={faCode} />
-            ChatBlog React
+            <FontAwesomeIcon icon={faCode} size="lg" />
+            <span>ChatBlog React</span>
           </div>
           <button
             type="button"
             onClick={() => navbarToggler()}
             className={styles.navbarToggle}
           >
-            <FontAwesomeIcon icon={faBars} />
+            <FontAwesomeIcon icon={faBars} size="lg" />
           </button>
           {!expandNavbar && (
             <div className={styles.navLinks}>
