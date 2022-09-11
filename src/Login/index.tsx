@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./login.module.scss";
 import axios from "axios";
 
 function Login() {
+  const navigate = useNavigate();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [loginStatus, setLoginStatus] = useState<boolean>(false);
@@ -28,8 +30,9 @@ function Login() {
         if (!response.data.auth) {
           setLoginStatus(false);
         } else {
-          localStorage.setItem("token", response.data.token)
+          localStorage.setItem("token", response.data.token);
           setLoginStatus(true);
+          navigate("/");
         }
       });
   };
@@ -54,7 +57,7 @@ function Login() {
           </button>
         </div>
       </form>
-      <h1>{loginStatus ? 'Logged in' : "not logged in" }</h1>
+      <h1>{loginStatus ? "Logged in" : "not logged in"}</h1>
     </div>
   );
 }
