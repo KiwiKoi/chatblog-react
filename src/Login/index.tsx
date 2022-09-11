@@ -1,11 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import styles from "./login.module.scss";
 import axios from "axios";
 
 function Login() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [loginStatus, setLoginStatus] = useState<string>("");
+  const [loginStatus, setLoginStatus] = useState<boolean>(false);
+
+  axios.defaults.withCredentials = true;
+
+  useEffect(() => {
+    axios.get("/login").then((response) => {
+      if (response.data.loggedIn === true) {
+        setLoginStatus(true);
+      }
+    });
+  }, []);
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
@@ -15,20 +25,18 @@ function Login() {
         password: password,
       })
       .then((response) => {
-        console.log(response)
-        if (response.data.message) {
-          console.log(response)
-          setLoginStatus(response.data.message);
+        if (!response.data.auth) {
+          setLoginStatus(false);
         } else {
-          console.log(response.data)
-          setLoginStatus(response.data.username)
+          localStorage.setItem("token", response.data.token)
+          setLoginStatus(true);
         }
       });
   };
 
   return (
     <div className={styles.loginComponent}>
-      <form >
+      <form>
         <label>
           <p>Username</p>
           <input type="text" onChange={(e) => setUsername(e.target.value)} />
@@ -41,10 +49,12 @@ function Login() {
           />
         </label>
         <div>
-          <button onClick={handleLogin} type="submit">Login</button>
+          <button onClick={handleLogin} type="submit">
+            Login
+          </button>
         </div>
       </form>
-      <h1>{loginStatus}</h1>
+      <h1>{loginStatus ? 'Logged in' : "not logged in" }</h1>
     </div>
   );
 }

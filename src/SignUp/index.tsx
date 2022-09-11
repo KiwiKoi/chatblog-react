@@ -30,7 +30,7 @@ function SignUp() {
 
   return (
     <>
-      <div className={styles.SignUpComponent}>
+      <div className={styles.signUpComponent}>
         <h1 className={styles.formTitle}>Create User</h1>
         <form className={styles.signUpForm} onSubmit={handleSubmit}>
           <div className={styles.formBlock}>
@@ -87,7 +87,7 @@ function SignUp() {
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
           </div>
-          <button type="submit">Create User</button>
+          <button type="submit">Sign Up</button>
         </form>
       </div>
     </>
