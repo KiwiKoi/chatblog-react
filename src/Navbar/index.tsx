@@ -43,6 +43,9 @@ function Navbar() {
               <Link to={"/signup"} className={styles.navLink}>
                 Sign Up
               </Link>
+              <Link to={"/login"} className={styles.navLink}>
+                Log In
+              </Link>
             </div>
           )}
         </div>
@@ -60,6 +63,9 @@ function Navbar() {
           </Link>
           <Link to={"/signup"} className={styles.navLink}>
             Sign Up
+          </Link>
+          <Link to={"/login"} className={styles.navLink}>
+            Log In
           </Link>
         </div>
       </div>

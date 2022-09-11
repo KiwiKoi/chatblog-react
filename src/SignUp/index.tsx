@@ -1,8 +1,8 @@
 import { useState } from "react";
-import styles from "./userCreate.module.scss";
+import styles from "./signUp.module.scss";
 import { v4 as uuidv4 } from "uuid";
 
-function UserCreate() {
+function SignUp() {
   const [username, setUsername] = useState<string>("");
   const [firstname, setFirstname] = useState<string>("");
   const [lastname, setLastname] = useState<string>("");
@@ -30,9 +30,9 @@ function UserCreate() {
 
   return (
     <>
-      <div className={styles.userCreateComponent}>
+      <div className={styles.SignUpComponent}>
         <h1 className={styles.formTitle}>Create User</h1>
-        <form className={styles.createUserForm} onSubmit={handleSubmit}>
+        <form className={styles.signUpForm} onSubmit={handleSubmit}>
           <div className={styles.formBlock}>
             <label>Username :</label>
             <input
@@ -94,4 +94,4 @@ function UserCreate() {
   );
 }
 
-export default UserCreate;
+export default SignUp;
