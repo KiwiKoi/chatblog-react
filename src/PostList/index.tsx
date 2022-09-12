@@ -21,7 +21,7 @@ function PostList() {
   return (
     <>
       <div className={styles.postListComponent}>
-        <h2 className={styles.postTitle}>Post List</h2>
+        <h2 className={styles.listTitle}>Post List</h2>
         <div className={styles.list}>
           {posts?.map((post) => (
             <PostCard key={post.id} {...post}/>

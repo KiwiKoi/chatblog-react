@@ -1,4 +1,4 @@
-.postCreateComponent {
+.newPostComponent {
   display: flex;
   flex-direction: column;
   padding: 4rem 2rem;
@@ -6,7 +6,7 @@
   max-width: 30rem;
   .title {
   }
-  .createPostForm {
+  .newPostForm {
     display: flex;
     flex-direction: column;
     gap: 1rem;

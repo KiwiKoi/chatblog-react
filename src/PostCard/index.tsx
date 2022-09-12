@@ -10,13 +10,12 @@ type Post = {
 
 function postCard(post: Post) {
   const { id, title, content, image } = post;
-console.log(post)
   return (
     <Link to={`/posts/${id}`} className={styles.postCard} key={id}>
-      <div className={styles.textContent}>
+      <div className={styles.cardContent}>
         <img className={styles.image} src={image} alt="" />
-      <h3>{title}</h3>
-      <p>{content}</p>
+        <h3>{title}</h3>
+        <p>{content}</p>
       </div>
     </Link>
   );
