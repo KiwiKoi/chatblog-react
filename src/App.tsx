@@ -6,11 +6,14 @@ import NewPost from "./NewPost";
 import Dashboard from "./Dashboard";
 import SignUp from "./SignUp";
 import Login from "./Login";
+import { UserContextProvider } from "./Contexts/UserContext";
 
 function App() {
   return (
     <>
-      <Navbar />
+      <UserContextProvider>
+        <Navbar />
+      </UserContextProvider>
       <Routes>
         <Route path="/" element={<PostList />} />
         <Route path="/posts/:id" element={<PostDetail />} />

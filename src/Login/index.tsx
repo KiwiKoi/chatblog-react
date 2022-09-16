@@ -12,11 +12,9 @@ function Login() {
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    axios.get("/login").then((response) => {
-      if (response.data.loggedIn === true) {
-        setLoginStatus(true);
-      }
-    });
+    if(localStorage.getItem("userSession")){
+      setLoginStatus(true)
+    }
   }, []);
 
   const handleLogin = async (e: any) => {
@@ -30,7 +28,7 @@ function Login() {
         if (!response.data.auth) {
           setLoginStatus(false);
         } else {
-          localStorage.setItem("token", response.data.token);
+          localStorage.setItem("userSession", JSON.stringify(response.data.results));
           setLoginStatus(true);
           navigate("/");
         }
