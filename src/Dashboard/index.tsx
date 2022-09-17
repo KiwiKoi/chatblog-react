@@ -1,21 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../Contexts/UserContext";
 import styles from "./dashboard.module.scss";
 
 function Dashboard() {
-  // const { currentUser } = useContext<any>(UserContext);
-  const [currentUser, setCurrentUser] = useState<any>({});
-
-
-  useEffect(() => {
-    const loggedInUser = localStorage.getItem("userSession");
-
-    if (loggedInUser) {
-      const foundUser = JSON.parse(loggedInUser);
-      setCurrentUser(foundUser);
-    }
-
-  }, []);
+  const { currentUser } = useContext<any>(UserContext);
 
   return (
     <>

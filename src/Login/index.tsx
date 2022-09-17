@@ -1,21 +1,23 @@
-import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./login.module.scss";
 import axios from "axios";
+import { UserContext } from "../Contexts/UserContext";
 
 function Login() {
+  const { currentUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [loginStatus, setLoginStatus] = useState<boolean>(false);
 
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    if(localStorage.getItem("userSession")){
-      setLoginStatus(true)
+    const isLoggedIn = currentUser ? true : false;
+    if (isLoggedIn) {
+      navigate("/dashboard");
     }
-  }, []);
+  }, [navigate, currentUser]);
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
@@ -25,13 +27,12 @@ function Login() {
         password: password,
       })
       .then((response) => {
-        if (!response.data.auth) {
-          setLoginStatus(false);
-        } else {
-          localStorage.setItem("userSession", JSON.stringify(response.data.results));
-          setLoginStatus(true);
-          navigate("/");
-        }
+        if (response.data.auth)
+          localStorage.setItem(
+            "userSession",
+            JSON.stringify(response.data.results)
+          );
+        navigate("/dashboard");
       });
   };
 
@@ -50,12 +51,21 @@ function Login() {
           />
         </label>
         <div>
-          <button onClick={handleLogin} type="submit">
+          <button
+            className={styles.loginBtn}
+            onClick={handleLogin}
+            type="submit"
+          >
             Login
           </button>
         </div>
       </form>
-      <h1>{loginStatus ? "Logged in" : "not logged in"}</h1>
+      <div className={styles.createAccount}>
+        <p>No Account?</p>
+        <Link to="/signup">
+          <button>Create an account</button>
+        </Link>
+      </div>
     </div>
   );
 }

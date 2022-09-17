@@ -7,21 +7,59 @@ import Dashboard from "./Dashboard";
 import SignUp from "./SignUp";
 import Login from "./Login";
 import { UserContextProvider } from "./Contexts/UserContext";
+import { useEffect, useState, useContext } from "react";
+import ProtectedRoute from "./ProtectedRoute";
+import { UserContext } from "./Contexts/UserContext";
 
 function App() {
+  const { currentUser } = useContext(UserContext);
+  const [isAuth, setIsAuth] = useState<boolean>(false);
+
+  useEffect(() => {
+    currentUser && setIsAuth(true);
+  }, [currentUser, isAuth]);
+
   return (
     <>
       <UserContextProvider>
         <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute isAuth={isAuth}>
+                <PostList />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/posts/:id"
+            element={
+              <ProtectedRoute isAuth={isAuth}>
+                <PostDetail />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/newPost"
+            element={
+              <ProtectedRoute isAuth={isAuth}>
+                <NewPost />
+              </ProtectedRoute>
+            }
+          />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute isAuth={isAuth}>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
+        </Routes>
       </UserContextProvider>
-      <Routes>
-        <Route path="/" element={<PostList />} />
-        <Route path="/posts/:id" element={<PostDetail />} />
-        <Route path="/newPost" element={<NewPost />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/signup" element={<SignUp />} />
-        <Route path="/login" element={<Login />} />
-      </Routes>
     </>
   );
 }
