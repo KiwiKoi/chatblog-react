@@ -1,11 +1,11 @@
 import { useEffect, useState, useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import styles from "./login.module.scss";
 import axios from "axios";
 import { UserContext } from "../Contexts/UserContext";
 
 function Login() {
-  const { currentUser } = useContext(UserContext);
+  const { currentUserRef } = useContext(UserContext);
   const navigate = useNavigate();
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -13,11 +13,12 @@ function Login() {
   axios.defaults.withCredentials = true;
 
   useEffect(() => {
-    const isLoggedIn = currentUser ? true : false;
+    const isLoggedIn = currentUserRef.current ? true : false;
+    console.log(isLoggedIn);
     if (isLoggedIn) {
       navigate("/dashboard");
     }
-  }, [navigate, currentUser]);
+  }, []);
 
   const handleLogin = async (e: any) => {
     e.preventDefault();
